@@ -42,4 +42,9 @@ public class Person
         return age;
     }
     
+    public String toString()
+    {
+        return name + " " + birthDay.toString() + " " + age;
+    }
+    
 }
