@@ -2,9 +2,10 @@ package mp5;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
 import javax.swing.*;
 
-public class RecordsView extends JFrame
+public class CentralRecordsView extends JFrame
 {
     private JTextArea recordArea;
     private JScrollPane scrollPane;
@@ -18,10 +19,13 @@ public class RecordsView extends JFrame
     private static final String[] sortOptions = 
         { "Name", "Birthday", "Age" };
     
-    public RecordsView()
+    private static final String header = 
+            "\tNAME\t BIRTHDAY\t AGE";
+    
+    public CentralRecordsView()
     {
         dropMenu = new JComboBox<>(sortOptions);
-        recordArea = new JTextArea(15,30);
+        recordArea = new JTextArea(header,15,30);
         rBtnGroup = new ButtonGroup();
         rAscending = new JRadioButton();
         rDescending = new JRadioButton();
@@ -76,5 +80,17 @@ public class RecordsView extends JFrame
         this.add(tblPanel);
         this.add(optionContainer);
         this.add(btnContainer);
+    }
+    
+    public void addBtnListener(MouseAdapter onClickEvent)
+    {
+        addRecordBtn.addMouseListener(onClickEvent);
+        removeRecordBtn.addMouseListener(onClickEvent);
+        exportBtn.addMouseListener(onClickEvent);
+    }
+    
+    public void appendRecord(String record)
+    {
+        recordArea.append("\n"+ record);
     }
 }
