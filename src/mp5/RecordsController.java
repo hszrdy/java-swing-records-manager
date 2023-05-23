@@ -29,6 +29,7 @@ public class RecordsController
         
         viewmodel.openRemoveRecBtnListener(openRemoveRecordBtn);
         viewmodel.openAddRecBtnListener(openAddRecordBtn);
+        viewmodel.exportBtnListener(exportBtn);
         
         removeRecordsView.addActionGoBtnListener(removalGoBtn);
         removeRecordsView.addActionMoreBtnListener(removalMoreBtn);
@@ -103,7 +104,7 @@ public class RecordsController
         public void mouseClicked(MouseEvent e)
         {
             if(!(e.getComponent() instanceof JButton)) return;
-            //export logic
+            Utilities.writeToCSV(listOfPersons);
         }
     };
     
