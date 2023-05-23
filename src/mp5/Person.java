@@ -1,24 +1,29 @@
 package mp5;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Date;
 
 public class Person 
 {
     private String name;
-    private Date birthDay;
+    private LocalDate birthDay;
+    private LocalDate dateToday;
     private int age;
+    private Period p;
     
     public Person() {}
-    public Person(String name, Date birthDay)
+    public Person(String name, LocalDate birthDay)
     {
         this.name = name;
-        this.birthDay = birthDay;
+        setBirthDay(birthDay);
+        
     }
     
-    public void setBirthDay(Date date)
+    public void setBirthDay(LocalDate date)
     {
         birthDay = date;
-        age = computeAge();
+        computeAge();
     }
     
     public void setName(String name)
@@ -36,15 +41,15 @@ public class Person
         return age;
     }
     
-    private int computeAge()
+    private void computeAge()
     {
-        //to be implemented
-        return age;
+        p = Period.between(birthDay, dateToday);
+        age = p.getYears();
     }
     
     public String toString()
     {
-        return name + " " + birthDay.toString() + " " + age;
+        return name + "\t" + birthDay.toString() + "\t" + age;
     }
     
 }
