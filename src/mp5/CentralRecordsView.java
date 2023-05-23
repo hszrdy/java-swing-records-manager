@@ -2,6 +2,7 @@ package mp5;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.*;
 
@@ -92,6 +93,11 @@ public class CentralRecordsView extends JFrame
     public void exportBtnListener(MouseAdapter onClickEvent)
     {
         exportBtn.addMouseListener(onClickEvent);
+    }
+    
+    public void ascendingRadioListener(ItemListener listener)
+    {
+        rAscending.addItemListener(listener);
     }
     
     public void appendRecord(String record)
