@@ -2,7 +2,9 @@ package mp5;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import javax.swing.text.DateFormatter;
 
 public class Person 
 {
@@ -31,6 +33,13 @@ public class Person
         this.name = name;
     }
     
+    public String getBDay()
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
+        String bday = dtf.format(birthDay);
+        return bday;
+    }
+            
     public String getName()
     {
         return name;
