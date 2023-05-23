@@ -16,8 +16,8 @@ public class Person
     public Person(String name, LocalDate birthDay)
     {
         this.name = name;
+        dateToday = LocalDate.now();
         setBirthDay(birthDay);
-        
     }
     
     public void setBirthDay(LocalDate date)
