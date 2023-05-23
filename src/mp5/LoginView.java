@@ -32,6 +32,7 @@ public class LoginView extends JFrame
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setSize(400, 200);
         this.setLocation(500, 400);
+        this.setTitle("Login");
         this.setLayout(new GridLayout(2,1));
         panel.setLayout(new GridLayout(2, 2));
         
