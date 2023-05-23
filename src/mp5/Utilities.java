@@ -1,13 +1,20 @@
 package mp5;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import javax.sound.sampled.DataLine;
 
 public class Utilities 
 {
@@ -61,6 +68,31 @@ public class Utilities
         }
         
         return uMap;
+    }
+    
+    public static void writeToCSV(ArrayList<Person> list)
+    {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
+        LocalDateTime d = LocalDateTime.now();
+        String fileName = dtf.format(d)
+                .replace("/", "")
+                .replace(" ", "")
+                .replace(":", "");
+        
+        File f = new File(fileName+".csv");
+        
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(f)))
+        {
+            for(Person p : list)
+            {
+                writer.write(p.getName() + "," + p.getBDay() + "," + p.getAge() + "\n");
+            }
+        } catch (Exception e) 
+        {
+            System.err.println("Error Writing To File.");
+        }
+        
+        System.out.println(f + " saved");
     }
     
     public static LinkedHashMap<String, Integer> getMonthsMap()
