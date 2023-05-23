@@ -2,7 +2,6 @@ package mp5;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
 import java.awt.event.MouseAdapter;
 import javax.swing.*;
 
@@ -15,6 +14,7 @@ public class RecordsModifierViewBase extends JFrame
     protected JComboBox<String> daysBox;
     protected JComboBox<String> yearsBox;
     protected JPanel fieldPanel, btnPanel, datePanel;
+    protected JLabel bdaylabel;
     
 
     public RecordsModifierViewBase()
@@ -34,9 +34,11 @@ public class RecordsModifierViewBase extends JFrame
         fieldPanel = new JPanel();
         btnPanel = new JPanel();
         datePanel = new JPanel();
+        bdaylabel = new JLabel();
         
         nameLabel.setText("Name: ");
         backBtn.setText("Back");
+        bdaylabel.setText("Birthdate: ");
         
         frameInit(600, 200);
     }
@@ -60,6 +62,7 @@ public class RecordsModifierViewBase extends JFrame
         btnPanel.add(actionMoreBtn);
         btnPanel.add(backBtn);
         
+        datePanel.add(bdaylabel);
         datePanel.add(monthsBox);
         datePanel.add(daysBox);
         datePanel.add(yearsBox);
