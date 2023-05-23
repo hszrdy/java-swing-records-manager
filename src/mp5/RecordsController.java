@@ -102,6 +102,7 @@ public class RecordsController
         {
             if(!(e.getComponent() instanceof JButton)) return;
             Utilities.writeToCSV(listOfPersons);
+            viewmodel.fileSavedDialogue();
         }
     };
     //close record remover from back btn
