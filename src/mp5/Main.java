@@ -8,7 +8,9 @@ public class Main
     LoginView loginView;
     Credentials creds;
     LoginController loginController;
-    RecordsView recordsView;
+    CentralRecordsView recordsView;
+    RecordsController recordsController;
+    Person person;
     
     private void start()
     {
@@ -16,7 +18,9 @@ public class Main
        creds = new Credentials();
        loginController = new LoginController(loginView, creds); 
        
-       recordsView = new RecordsView();
+       recordsView = new CentralRecordsView();
+       person = new Person();
+       recordsController = new RecordsController(recordsView, person);
        
        init();   
     }
