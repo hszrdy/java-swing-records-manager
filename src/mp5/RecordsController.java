@@ -14,9 +14,6 @@ public class RecordsController
     private RemoveRecordsView removeRecordsView;
     private AddRecordsView addRecordsView;
     
-    //viewmodel for addrecord and removerecord
-    //pass on stuff from other views into main record view
-    
     private ArrayList<Person> listOfPersons = new ArrayList<>();
     private LinkedHashMap<String, Integer> monthMap = Utilities.getMonthsMap();
     
@@ -72,7 +69,7 @@ public class RecordsController
         
         return -1;
     }
-    
+    //prompt for removing record
     MouseAdapter openRemoveRecordBtn = new MouseAdapter() 
     {
         @Override
@@ -85,7 +82,7 @@ public class RecordsController
         }
         
     };
-    
+    //prompt for adding record
     MouseAdapter openAddRecordBtn = new MouseAdapter() 
     {
         @Override
@@ -97,7 +94,7 @@ public class RecordsController
         }
         
     };
-    
+    //export record
     MouseAdapter exportBtn = new MouseAdapter() 
     {
         @Override
@@ -107,7 +104,7 @@ public class RecordsController
             Utilities.writeToCSV(listOfPersons);
         }
     };
-    
+    //close record remover from back btn
     MouseAdapter backBtnR = new MouseAdapter() 
     {
         @Override
@@ -117,7 +114,7 @@ public class RecordsController
         }
         
     };
-    
+    //close record adder from back btn
     MouseAdapter backBtnA = new MouseAdapter() 
     {
         @Override
@@ -127,7 +124,7 @@ public class RecordsController
         }
         
     };
-    
+    //remove and return back
     MouseAdapter removalGoBtn = new MouseAdapter() 
     {
         @Override
@@ -156,7 +153,7 @@ public class RecordsController
             removeRecordsView.dispose();
         }
     };
-    
+    //remove but do not return back
     MouseAdapter removalMoreBtn = new MouseAdapter() 
     {
         @Override
@@ -184,7 +181,7 @@ public class RecordsController
             updateRecordView();
         }
     };
-    
+    //add and return back
     MouseAdapter addGoBtn = new MouseAdapter() 
     {
         @Override
@@ -234,7 +231,7 @@ public class RecordsController
             addRecordsView.dispose();
         }
     };
-    
+    //add but do not return back
     MouseAdapter addMoreBtn = new MouseAdapter() 
     {
         @Override
@@ -283,9 +280,4 @@ public class RecordsController
             updateRecordView();
         }
     };
-    
-    
-    
-    //add event listeners for the add or removal of records
-    //where if clicked, the values will be captured here
 }
