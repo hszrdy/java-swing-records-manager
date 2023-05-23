@@ -1,6 +1,5 @@
 package mp5;
 
-import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
@@ -108,6 +107,11 @@ public class CentralRecordsView extends JFrame
     public void clearRecordArea()
     {
         recordArea.setText(header);
+    }
+    
+    public void fileSavedDialogue()
+    {
+        JOptionPane.showMessageDialog(this, "File saved to project directory.");
     }
     
     public void updateFrame()
