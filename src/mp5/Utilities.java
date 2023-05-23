@@ -7,9 +7,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Utilities 
 {
+    public static String[] months = {
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    };
+    
     public static HashMap<String, String> getLoginCredentials(String address)
     {
         File file = new File(address);
@@ -55,5 +61,17 @@ public class Utilities
         }
         
         return uMap;
+    }
+    
+    public static LinkedHashMap<String, Integer> getMonthsMap()
+    {
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+        
+        for(int i = 0; i < months.length; ++i )
+        {
+            map.put(months[i], (i+1));
+        }
+        
+        return map;
     }
 }
