@@ -25,7 +25,7 @@ public class CentralRecordsView extends JFrame
     public CentralRecordsView()
     {
         dropMenu = new JComboBox<>(sortOptions);
-        recordArea = new JTextArea(header,15,30);
+        recordArea = new JTextArea(header,20,40);
         rBtnGroup = new ButtonGroup();
         rAscending = new JRadioButton();
         rDescending = new JRadioButton();
@@ -45,7 +45,7 @@ public class CentralRecordsView extends JFrame
     public void init()
     {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(500, 600);
+        this.setSize(500, 500);
         this.setTitle("Records");
         this.setResizable(false);
         this.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -64,9 +64,6 @@ public class CentralRecordsView extends JFrame
         rBtnGroup.add(rAscending);
         rBtnGroup.add(rDescending);
         
-        optionContainer.setBackground(Color.red);
-        tblPanel.setBackground(Color.BLUE);
-        
         tblPanel.add(scrollPane);
         optionContainer.add(label);
         optionContainer.add(dropMenu);
@@ -82,15 +79,38 @@ public class CentralRecordsView extends JFrame
         this.add(btnContainer);
     }
     
-    public void addBtnListener(MouseAdapter onClickEvent)
+    public void openAddRecBtnListener(MouseAdapter onClickEvent)
     {
         addRecordBtn.addMouseListener(onClickEvent);
+    }
+    
+    public void openRemoveRecBtnListener(MouseAdapter onClickEvent)
+    {
         removeRecordBtn.addMouseListener(onClickEvent);
+    }
+    
+    public void exportBtnListener(MouseAdapter onClickEvent)
+    {
         exportBtn.addMouseListener(onClickEvent);
     }
     
     public void appendRecord(String record)
     {
-        recordArea.append("\n"+ record);
+        recordArea.append("\n"+"\t"+ record);
+    }
+    
+    public void clearRecordArea()
+    {
+        recordArea.setText(header);
+    }
+    
+    public void updateFrame()
+    {
+        recordArea.revalidate();
+        recordArea.repaint();
+        this.revalidate();
+        this.repaint();
+        scrollPane.revalidate();
+        scrollPane.revalidate();
     }
 }
