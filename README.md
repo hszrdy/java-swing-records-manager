@@ -19,7 +19,7 @@ A desktop GUI application for managing a list of people's records - name, birthd
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/hszrdy/<repo-name>.git
+   git clone https://github.com/hszrdy/java-swing-records-manager.git
    ```
 2. Open the project in NetBeans, or build with Ant:
    ```bash
